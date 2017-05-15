@@ -4,6 +4,12 @@ Lists of packages, softwares, and other tools that every computer scientist, sof
 ## Languages, Compilers, and Interpreters
 - g++
 - gcc
+- java jdk
+- lua
+- perl
+- php
+- python
+- ruby
 
 ## SSH Clients
 - PuTTY
@@ -16,3 +22,8 @@ Lists of packages, softwares, and other tools that every computer scientist, sof
 ## Emulation
 - QEMU
 - VirtualBox
+
+# Disk Tools
+- ImgBurn (Windows)
+- SDFormatter (Windows)
+- Win32DiskImager (Windows)
