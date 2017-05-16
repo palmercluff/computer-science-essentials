@@ -32,6 +32,7 @@ Lists of packages, softwares, and other tools that every computer scientist, sof
 - SDFormatter (Windows)
 - TestDisk
 - Win32DiskImager (Windows)
+- WinCDEmu (Windows)
 
 ## Integrity Checks
 - IgorWare Hasher
