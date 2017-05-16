@@ -15,7 +15,7 @@ Lists of packages, softwares, and other tools that every computer scientist, sof
 - ruby
 
 ## SSH Clients
-- PuTTY
+- PuTTY (Linux, Windows)
 
 ## Networking Tools
 - OpenVPN
@@ -27,6 +27,7 @@ Lists of packages, softwares, and other tools that every computer scientist, sof
 - VirtualBox
 
 ## Disk Tools
+- furiusisomount (Linux)
 - ImgBurn (Windows)
 - SDFormatter (Windows)
 - TestDisk
