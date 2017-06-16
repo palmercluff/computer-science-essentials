@@ -27,6 +27,7 @@ Lists of packages, softwares, and other tools that every computer scientist, sof
 - VirtualBox
 
 ## Disk Tools
+- ChkFlsh (Windows)
 - furiusisomount (Linux)
 - ImgBurn (Windows)
 - SDFormatter (Windows)
