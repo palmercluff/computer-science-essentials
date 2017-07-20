@@ -30,6 +30,8 @@ Lists of packages, softwares, and other tools that every computer scientist, sof
 - ChkFlsh (Windows)
 - furiusisomount (Linux)
 - ImgBurn (Windows)
+- quota (Linux)
+- quotatool (Linux)
 - SDFormatter (Windows)
 - TestDisk
 - Win32DiskImager (Windows)
