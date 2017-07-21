@@ -29,6 +29,7 @@ Lists of packages, softwares, and other tools that every computer scientist, sof
 ## Disk Tools
 - ChkFlsh (Windows)
 - furiusisomount (Linux)
+- htop (Linux)
 - ImgBurn (Windows)
 - quota (Linux)
 - quotatool (Linux)
