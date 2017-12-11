@@ -48,3 +48,4 @@ Lists of packages, softwares, and other tools that every computer scientist, sof
 - `apt-get install default-jdk` (Linux) Installs the Java development kit (javac).
 - Emacs text-mode: mark whole buffer with `C-x h` (or `M-x mark-whole-buffer`).
 - Emacs copy and paste: Press `Ctrl-Space` to mark start of block. Move cursor until end of block. Press `Alt-w` to copy. Move to insert position. Press `Ctrl-y` to paste.
+- Add new user to sudo group: `usermod -a -G sudo user_account`.
