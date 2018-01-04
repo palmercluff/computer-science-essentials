@@ -49,3 +49,4 @@ Lists of packages, softwares, and other tools that every computer scientist, sof
 - Emacs text-mode: mark whole buffer with `C-x h` (or `M-x mark-whole-buffer`).
 - Emacs copy and paste: Press `Ctrl-Space` to mark start of block. Move cursor until end of block. Press `Alt-w` to copy. Move to insert position. Press `Ctrl-y` to paste.
 - Add new user to sudo group: `usermod -a -G sudo user_account`.
+- `cat /dev/null > ~/.bash_history && history -c && exit` This clears the history saved in the history file as well as the history in the current session (so that it's not saved to file when bash exits). It then exits the shell. The next shell session will have no history.
