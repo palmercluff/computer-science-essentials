@@ -31,6 +31,7 @@ Lists of packages, softwares, and other tools that every computer scientist, sof
 - furiusisomount (Linux)
 - htop (Linux)
 - ImgBurn (Windows)
+- MagicISO (Windows)
 - quota (Linux)
 - quotatool (Linux)
 - SDFormatter (Windows)
