@@ -47,6 +47,7 @@ Lists of packages, softwares, and other tools that every computer scientist, sof
 - `netstat -tulpn` (Linux) Returns a list of active internet connections and their associated ports. Use `netstat -tulpn | grep LISTEN` to return of the list of listening ports.
 - `apt-get install default-jre` (Linux) Installs the Java runtime environment (java).
 - `apt-get install default-jdk` (Linux) Installs the Java development kit (javac).
+- Emacs `M-x` command can be executed by: `Alt-x` or `Esc-x` or `Esc x`
 - Emacs text-mode: mark whole buffer with `C-x h` (or `M-x mark-whole-buffer`).
 - Emacs copy and paste: Press `Ctrl-Space` to mark start of block. Move cursor until end of block. Press `Alt-w` to copy. Move to insert position. Press `Ctrl-y` to paste.
 - Add new user to sudo group: `usermod -a -G sudo user_account`.
