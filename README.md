@@ -52,6 +52,14 @@ Lists of packages, softwares, and other tools that every computer scientist, sof
 - Emacs text-mode: mark whole buffer with `C-x h` (or `M-x mark-whole-buffer`).
 - Emacs copy and paste: Press `Ctrl-Space` to mark start of block. Move cursor until end of block. Press `Alt-w` to copy. Move to insert position. Press `Ctrl-y` to paste.
 - Emacs set Japanese input: `Ctrl-\` then enter the string `japanese` (or `japanese-katakana`). Toggle between Japanese and English with the same command.
+- Emacs insert text (put in init file) then run using:`M-x` `insert-p-tag`:
+  ```
+  (defun insert-p-tag ()
+    "Insert <p></p> at cursor point."
+    (interactive)
+    (insert "<p></p>")
+    (backward-char 4))
+  ```
 - Emacs windows commands:
   - `C-x 2` - Split window horizontally
   - `C-x 3` - Split window vertically
