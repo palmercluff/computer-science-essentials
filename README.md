@@ -50,7 +50,7 @@ Lists of packages, softwares, and other tools that every computer scientist, sof
 - Emacs `M-x` command can be executed by: `Alt-x` or `Esc-x` or `Esc x`.
 - Emacs `C-g` cancel command.
 - Emacs text-mode: mark whole buffer with `C-x h` (or `M-x mark-whole-buffer`).
-- Emacs copy and paste: Press `Ctrl-Space` to mark start of block. Move cursor until end of block. Press `Alt-w` to copy. Move to insert position. Press `Ctrl-y` to paste.
+- Emacs copy and paste: Press `Ctrl-Space` to mark start of block. Move cursor until end of block. Press `M-w` to copy (or `C-w` to cut). Move to insert position. Press `Ctrl-y` to paste.
 - Emacs set Japanese input: `Ctrl-\` then enter the string `japanese` (or `japanese-katakana`). Toggle between Japanese and English with the same command.
 - For Windows, to find where root directory is, just do: `C-x C-f ~/`.
 - Emacs insert text (put in init file) then run using:`M-x` `insert-p-tag`:
