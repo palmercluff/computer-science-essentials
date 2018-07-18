@@ -73,5 +73,12 @@ Lists of packages, softwares, and other tools that every computer scientist, sof
   - `C-x k` - Kill buffer
   - `C-x left-arrow-key` - Back a buffer
   - `C-x right-arrow-key` - Forward a buffer
+- Emacs create macro:
+  - `C-x (` or `<f3>` to start recording macro
+  - `C-x )` or `<f4>` to stop recording macro
+  - `C-x e` or `<f4>` to execute last macro you defined
+  - `M-x name-last-kbd-macro` to name last defined macro
+  - `M-x insert-kbd-macro` to save named macro (copy result to .emacs file)
+  - `M-x macro_name` to run your macro
 - Add new user to sudo group: `usermod -a -G sudo user_account`.
 - `cat /dev/null > ~/.bash_history && history -c && exit` This clears the history saved in the history file as well as the history in the current session (so that it's not saved to file when bash exits). It then exits the shell. The next shell session will have no history.
