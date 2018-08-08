@@ -43,6 +43,8 @@ Lists of packages, softwares, and other tools that every computer scientist, sof
 - IgorWare Hasher
 
 ## Useful Commands
+- `du -sh file_path` or `du -sh *` Size of file(s).
+- `df -h` size left on filesystem.
 - `repquota -a` (Linux) Returns a detailed report of all users that have been assigned a quota. Must be root or have sudo priveledges.
 - `netstat -tulpn` (Linux) Returns a list of active internet connections and their associated ports. Use `netstat -tulpn | grep LISTEN` to return of the list of listening ports.
 - `apt-get install default-jre` (Linux) Installs the Java runtime environment (java).
