@@ -30,6 +30,7 @@ Lists of packages, softwares, and other tools that every computer scientist, sof
 - ChkFlsh (Windows)
 - furiusisomount (Linux)
 - htop (Linux)
+- atop (Linux)
 - ImgBurn (Windows)
 - MagicISO (Windows)
 - quota (Linux)
