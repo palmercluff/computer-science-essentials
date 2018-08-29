@@ -84,5 +84,22 @@ Lists of packages, softwares, and other tools that every computer scientist, sof
   - `M-x name-last-kbd-macro` to name last defined macro
   - `M-x insert-kbd-macro` to save named macro (copy result to .emacs file)
   - `M-x macro_name` to run your macro
+- Manually install an emacs package:
+  ```
+  ;; Tell emacs where is your personal elisp lib dir
+  (add-to-list 'load-path "~/.emacs.d/lisp/")
+
+  ;; load the packaged named xyz.
+  (load "xyz") ;; best not to include the ending ".el" or ".elc"
+  ```
+- Install auto-complete package in emacs:
+  - `sudo apt-get install auto-complete-el`
+  - In .emacs file:
+    ```
+    (require 'auto-complete-config)
+    (require 'auto-complete)
+    (global-auto-complete-mode t)
+    (ac-config-default)
+    ```
 - Add new user to sudo group: `usermod -a -G sudo user_account`.
 - `cat /dev/null > ~/.bash_history && history -c && exit` This clears the history saved in the history file as well as the history in the current session (so that it's not saved to file when bash exits). It then exits the shell. The next shell session will have no history.
