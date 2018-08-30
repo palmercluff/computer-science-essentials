@@ -33,3 +33,6 @@ an opening tag that is not followed by a matching closing tag."
 (eval-after-load "sgml-mode"
   '(define-key sgml-mode-map ">" 'my-sgml-insert-gt))
 ;; End closing tags automatically
+
+;; Enable terminal mouse
+(xterm-mouse-mode 1)
