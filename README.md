@@ -52,6 +52,7 @@ Lists of packages, softwares, and other tools that every computer scientist, sof
 - `apt-get install default-jdk` (Linux) Installs the Java development kit (javac).
 - Emacs `M-x` command can be executed by: `Alt-x` or `Esc-x` or `Esc x`.
 - Emacs `C-g` cancel command.
+- Emacs `M-g M-g` or `M-g g` goes to line #.
 - Emacs text-mode: mark whole buffer with `C-x h` (or `M-x mark-whole-buffer`).
 - Emacs copy and paste: Press `Ctrl-Space` to mark start of block. Move cursor until end of block. Press `M-w` to copy (or `C-w` to cut). Move to insert position. Press `Ctrl-y` to paste.
 - Emacs set Japanese input: `Ctrl-\` then enter the string `japanese` (or `japanese-katakana`). Toggle between Japanese and English with the same command.
