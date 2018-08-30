@@ -98,8 +98,8 @@ Lists of packages, softwares, and other tools that every computer scientist, sof
     ```
     (require 'auto-complete-config)
     (require 'auto-complete)
-    (global-auto-complete-mode t)
     (ac-config-default)
+    (global-auto-complete-mode t)
     ```
   - Manual can be found here: `/usr/share/doc/auto-complete-el/doc/manual.txt`
   - Source files can be found here: `/usr/share/emacs24/site-lisp/auto-complete/`
