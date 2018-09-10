@@ -110,5 +110,8 @@ Lists of packages, softwares, and other tools that every computer scientist, sof
 - Install lua-mode for emacs:
   - `sudo apt-get install lua-mode`
   - In .emacs file: `(require 'lua-mode)`
+- Convert Latex to PDF when exporting to PDF in ORG mode
+  - `sudo apt-get install texlive-latex-base`
+  - `sudo apt-get install texlive-latex-extra`
 - Add new user to sudo group: `usermod -a -G sudo user_account`.
 - `cat /dev/null > ~/.bash_history && history -c && exit` This clears the history saved in the history file as well as the history in the current session (so that it's not saved to file when bash exits). It then exits the shell. The next shell session will have no history.
