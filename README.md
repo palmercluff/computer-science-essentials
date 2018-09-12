@@ -106,6 +106,7 @@ Lists of packages, softwares, and other tools that every computer scientist, sof
     ```
   - Manual can be found here: `/usr/share/doc/auto-complete-el/doc/manual.txt`
   - Source files can be found here: `/usr/share/emacs24/site-lisp/auto-complete/`
+  - To use flyspell-mode with auto-complete, include: `(ac-flyspell-workaround)` in .emacs file
 - Install php-mode for emacs:
   - `sudo apt-get install php-elisp`
   - In .emacs file: `(require 'php-mode)`
