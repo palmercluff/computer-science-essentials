@@ -1,6 +1,12 @@
 ;; Add line numbers to all open windows
 (global-linum-mode)
 
+;; The following adds a space after the line-number
+(setq linum-format "%d ")
+
+;; You can also add a solid line separator
+(setq linum-format "%4d \u2502 ")
+
 ;; Wrap lines at the word border
 (global-visual-line-mode t)
 
