@@ -1,6 +1,9 @@
 ;; Add line numbers to all open windows
 (global-linum-mode)
 
+;; Wrap lines at the word border
+(global-visual-line-mode t)
+
 ;; Disable warning bell
 (setq ring-bell-function 'ignore)
 
