@@ -52,6 +52,7 @@ Lists of packages, softwares, and other tools that every computer scientist, sof
 - `apt-get install default-jdk` (Linux) Installs the Java development kit (javac).
 - Emacs `M-x` command can be executed by: `Alt-x` or `Esc-x` or `Esc x`.
 - Emacs `C-g` cancel command.
+- Emacs `Esc Esc Esc` go back to just one window (by deleting all but the selected window).
 - Emacs `C-h ?` will take you to the help menu.
 - Emacs `C-x C-h` will show you all keybindings that start with `C-x`.
 - Emacs `M-g M-g` or `M-g g` goes to line #.
