@@ -56,6 +56,7 @@ Lists of packages, softwares, and other tools that every computer scientist, sof
 - Emacs `C-h ?` will take you to the help menu.
 - Emacs `C-x C-h` will show you all keybindings that start with `C-x`.
 - Emacs `M-g M-g` or `M-g g` goes to line #.
+- Emacs `C-y M-y M-y M-y ...` loops through the kill ring.
 - Emacs text-mode: mark whole buffer with `C-x h` (or `M-x mark-whole-buffer`).
 - Emacs copy and paste: Press `Ctrl-Space` to mark start of block. Move cursor until end of block. Press `M-w` to copy (or `C-w` to cut). Move to insert position. Press `Ctrl-y` to paste.
 - Emacs set Japanese input: `Ctrl-\` then enter the string `japanese` (or `japanese-katakana`). Toggle between Japanese and English with the same command.
