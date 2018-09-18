@@ -109,6 +109,23 @@ Lists of packages, softwares, and other tools that every computer scientist, sof
   - Manual can be found here: `/usr/share/doc/auto-complete-el/doc/manual.txt`
   - Source files can be found here: `/usr/share/emacs24/site-lisp/auto-complete/`
   - To use flyspell-mode with auto-complete, include: `(ac-flyspell-workaround)` in .emacs file
+- Use Ditaa in org-mode for diagram-making
+  - `sudo apt-get install ditaa`
+  - `cp /usr/share/ditaa/ditaa.jar /usr/share/emacs/24.5/lisp/contrib/scripts/ditaa.jar`
+  - In .emacs file:
+    ```
+    (org-babel-do-load-languages
+     'org-babel-load-languages
+     '((ditaa . t))) ; this line activates ditaa
+    ```
+  - Use `C-c C-c` to evaluate code block
+    ```
+    #+BEGIN_SRC ditaa :file foo.png
+        +-------+
+        | Hello |
+        +-------+
+    #+END_SRC
+    ```
 - Turn on `flyspell` for all programming languages: `(add-hook 'prog-mode-hook 'flyspell-prog-mode)`
 - Install php-mode for emacs:
   - `sudo apt-get install php-elisp`
