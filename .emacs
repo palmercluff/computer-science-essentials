@@ -51,3 +51,13 @@ an opening tag that is not followed by a matching closing tag."
 
 ;; Enable the display of time in the modeline
 (display-time-mode 1)
+
+;; Turn off confirmation requests for all code blocks
+(setq org-confirm-babel-evaluate nil)
+
+;; Turn off confirmation requests for certain languages
+(defun my-org-confirm-babel-evaluate (lang body)
+  (not (member lang '("python" "sh"))))
+
+(setq org-confirm-babel-evaluate 'my-org-confirm-babel-evaluate)
+;; End Turn off confirmation requests for certain languages
