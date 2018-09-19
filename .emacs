@@ -48,3 +48,6 @@ an opening tag that is not followed by a matching closing tag."
 
 ;; Set custom global key binding that calls a function
 (global-set-key (kbd "C-c C-c") 'my-function)
+
+;; Enable the display of time in the modeline
+(display-time-mode 1)
