@@ -136,7 +136,7 @@ Lists of packages, softwares, and other tools that every computer scientist, sof
 - Convert Latex to PDF when exporting to PDF in ORG mode
   - `sudo apt-get install texlive-latex-base`
   - `sudo apt-get install texlive-latex-extra`
-- Emacs Encryption:
+- Emacs Encryption (Emacs 23 or later):
   - To enable file encryption when saving a .gpg file (i.e. test.org.gpg) in .emacs:
     ```
     (require 'epa-file)
