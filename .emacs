@@ -76,4 +76,4 @@ an opening tag that is not followed by a matching closing tag."
 
 ;; Or use an anonymous function instead
 (global-set-key (kbd "C-c C-d") (lambda () (interactive) (insert (shell-command-to-string "date"))))
-;; This is the equivelent of basically doing C-u M-! date (M-! data) will do the same, but use a different buffer for output
+;; This is the equivelent of basically doing C-u M-! date. M-! date will do the same, but use a different buffer for output
