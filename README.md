@@ -136,6 +136,14 @@ Lists of packages, softwares, and other tools that every computer scientist, sof
 - Convert Latex to PDF when exporting to PDF in ORG mode
   - `sudo apt-get install texlive-latex-base`
   - `sudo apt-get install texlive-latex-extra`
+- Emacs Encryption:
+  - To enable file encryption when saving a .gpg file (i.e. test.org.gpg) in .emacs:
+    ```
+    (require 'epa-file)
+    (epa-file-enable)
+    ```
+  - To encrypt a region: `M-x epa-encrypt-region`
+  - To decrypt a region: `M-x epa-decrypt-region`
 - `M-$` Check and correct spelling of the word at point (`ispell-word`). If the region is active, do it for all words in the region instead
 - `M-x ispell` Check and correct spelling of all words in the buffer. If the region is active, do it for all words in the region instead
 - While changing a word, pressing `<space>` will skip the word, but will still consider it incorrect for now
