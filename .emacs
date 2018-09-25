@@ -61,3 +61,19 @@ an opening tag that is not followed by a matching closing tag."
 
 (setq org-confirm-babel-evaluate 'my-org-confirm-babel-evaluate)
 ;; End Turn off confirmation requests for certain languages
+
+;; Make external command and insert output into current buffer
+;; Start
+(defun put-the-date ()
+  (interactive)
+  (insert (shell-command-to-string "date")))
+
+(global-set-key
+ (kbd "C-c C-d")
+ 'put-the-date
+ )
+;; Stop
+
+;; Or use an anonymous function instead
+(global-set-key (kbd "C-c C-d") (lambda () (interactive) (insert (shell-command-to-string "date"))))
+;; This is the equivelent of basically doing C-u M-! date (M-! data) will do the same, but use a different buffer for output
