@@ -144,6 +144,40 @@ Lists of packages, softwares, and other tools that every computer scientist, sof
     ```
   - To encrypt a region: `M-x epa-encrypt-region`
   - To decrypt a region: `M-x epa-decrypt-region`
+- Use abbreviations:
+  - Make a `abbrevs.el` or whatever named file and put something like this in it:
+    ```
+    (define-abbrev-table 'global-abbrev-table '(
+                                            ("8alpha"   "α")
+                                            ("8beta"    "β")
+                                            ("8gamma"   "γ")
+                                            ("8Delta"   "Δ")
+                                            ("8delta"   "δ")
+                                            ("8theta"   "θ")
+                                            ("8lambda"  "λ")
+                                            ("8mu"      "µ")
+                                            ("8nu"      "ν")
+                                            ("8pi"      "π")
+                                            ("8Sigma"   "Σ")
+                                            ("8sigma"   "σ")
+                                            ("8tau"     "τ")
+                                            ("8phi"     "φ")
+                                            ("8psi"     "ψ")
+                                            ("8Omega"   "Ω")
+                                            ("8omega"   "ω")
+                                            ("8in"      "∈")
+                                            ("8nin"     "∉")
+                                            ("8inf"     "∞")
+                                            ))
+    ```
+  - Then in .emacs put:
+    ```
+    (setq abbrev-file-name       ;; tell emacs where to read abbrev
+          "~/abbrevs.el")        ;; definitions from...
+    (setq save-abbrevs t)        ;; (ask) save abbrevs when files are saved
+    (setq-default abbrev-mode t) ;; turn it on for all modes
+    ```
+  - Then whenever you type the key, then space or . it will convert
 - `M-$` Check and correct spelling of the word at point (`ispell-word`). If the region is active, do it for all words in the region instead
 - `M-x ispell` Check and correct spelling of all words in the buffer. If the region is active, do it for all words in the region instead
 - While changing a word, pressing `<space>` will skip the word, but will still consider it incorrect for now
