@@ -10,6 +10,9 @@
 ;; Wrap lines at the word border
 (global-visual-line-mode t)
 
+;; Show column number
+(column-number-mode 1)
+
 ;; Disable warning bell
 (setq ring-bell-function 'ignore)
 
@@ -78,7 +81,7 @@ an opening tag that is not followed by a matching closing tag."
 (global-set-key (kbd "C-c C-d") (lambda () (interactive) (insert (shell-command-to-string "date"))))
 ;; This is the equivelent of basically doing C-u M-! date. M-! date will do the same, but use a different buffer for output
 
-;; Interactive and prompt examples
+;; Start interactive and prompt examples
 (defun print-elements-of-list (list)
   "Print each element of LIST on a line of its own."
   (while list
@@ -159,3 +162,15 @@ Returns whatever the action returns."
       (message "You chose no")
       )
     ))
+;; End interactive and prompt examples
+
+;; Save all generated backups in one place
+(setq backup-directory-alist '(("." . "~/emacsFilesBackups")))
+
+;; Disk space is cheap, backup the same file(s) very often!
+(setq version-control t)      ;; Use version numbers for backups
+(setq kept-new-versions 10)   ;; Number of newest versions to keep
+(setq kept-old-versions 0)    ;; Number of oldest versions to keep
+(setq delete-old-versions t)  ;; Don't ask to delete excess backup versions
+(setq backup-by-copying t)    ;; Copy all files, don't rename them
+(setq vc-make-backup-files t) ;; Backup versioned files
