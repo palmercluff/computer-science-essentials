@@ -174,3 +174,29 @@ Returns whatever the action returns."
 (setq delete-old-versions t)  ;; Don't ask to delete excess backup versions
 (setq backup-by-copying t)    ;; Copy all files, don't rename them
 (setq vc-make-backup-files t) ;; Backup versioned files
+
+;; New HTML5 Template
+(defun newHTML5Template ()
+  "Insert a template for an empty HTML page"
+  (interactive)
+  (insert "<!DOCTYPE html>\n"
+          "<html>\n"
+          "  <head>\n"
+          "    <title></title>\n"
+          "  </head>\n"
+          "  <body>\n"
+          "  </body>\n"
+          "</html>\n")
+  (forward-line -5)
+  (forward-char 11)
+  )
+
+;; Use new HTML template if the file is empty
+(add-hook 'html-mode-hook
+          (lambda ()
+            (if (= (buffer-size) 0)
+                (progn
+                  (newHTML5Template)
+                  (message "Used HTML template"))
+              (message "Did not use HTML template"))
+            ))
