@@ -62,6 +62,9 @@ Lists of packages, softwares, and other tools that every computer scientist, sof
 - Emacs set Japanese input: `Ctrl-\` then enter the string `japanese` (or `japanese-katakana`). Toggle between Japanese and English with the same command.
 - For Windows, to find where root directory is, just do: `C-x C-f ~/`.
 - Open a new shell buffer: `C-u M-x shell`.
+- Evaluating Elisp:
+  - `C-x C-e` evaluates lisp code before point and prints value in the echo area
+  - `C-j` evaluates lisp code before point and inserts value at point
 - Emacs insert text (put in init file) then run using:`M-x` `insert-p-tag`:
   ```
   (defun insert-p-tag ()
