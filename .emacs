@@ -1,3 +1,10 @@
+;; Disable startup screen
+(setq inhibit-startup-screen t)
+
+;; For older versions of Emacs (24 and below (I think)), use:
+(setq inhibit-splash-screen t)   ;; Alias for inhibit-startup-screen
+(setq inhibit-startup-message t) ;; Alias for inhibit-startup-screen
+
 ;; Add line numbers to all open windows
 (global-linum-mode)
 
