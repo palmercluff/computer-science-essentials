@@ -207,3 +207,6 @@ Returns whatever the action returns."
                   (message "Used HTML template"))
               (message "Did not use HTML template"))
             ))
+
+;; If you press C-z by mistake then you can add this to your .emacs to make C-z do nothing
+(global-unset-key (kbd "C-z"))
