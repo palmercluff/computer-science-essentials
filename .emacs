@@ -210,3 +210,19 @@ Returns whatever the action returns."
 
 ;; If you press C-z by mistake then you can add this to your .emacs to make C-z do nothing
 (global-unset-key (kbd "C-z"))
+
+;; Example Org project + export
+;;
+;; Publish with (org-publish-current-project) while having a file in your project open
+;; OR
+;; M-x org-publish-project RET project-name RET
+;;
+;; Force publish cached files: M-: (org-publish "project-name" t)
+;; OR
+;; C-u M-x org-publish
+(setq org-publish-project-alist
+      '(("Example Org project"
+         :base-directory "~/example_org_project"
+         :recursive "t"
+         :publishing-function org-html-publish-to-html
+         :publishing-directory "/var/www/html/exported_example_org_project")))
