@@ -187,6 +187,15 @@ Lists of packages, softwares, and other tools that every computer scientist, sof
     (setq-default abbrev-mode t) ;; turn it on for all modes
     ```
   - Then whenever you type the key, then space or . it will convert
+- Evil Mode (https://github.com/emacs-evil/evil)
+  - In .emacs:
+    ```
+    (add-to-list 'load-path "~/evil")
+    (require 'evil)
+    (evil-mode 1)
+    (setq evil-default-state 'emacs) ;; changes default state to emacs
+    ```
+  - When using evil-mode, `C-z` is used by default to switch between Vi and Emacs modes
 - `M-$` Check and correct spelling of the word at point (`ispell-word`). If the region is active, do it for all words in the region instead
 - `M-x ispell` Check and correct spelling of all words in the buffer. If the region is active, do it for all words in the region instead
 - While changing a word, pressing `<space>` will skip the word, but will still consider it incorrect for now
