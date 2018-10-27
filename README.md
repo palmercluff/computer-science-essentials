@@ -239,7 +239,7 @@ Lists of packages, softwares, and other tools that every computer scientist, sof
     ```
   - Then whenever you type the key, then space or . it will convert
   - `C-q` prevents word from expanding if you do it before space or punctuation
-- Evil Mode (https://github.com/emacs-evil/evil)
+- Evil Mode
   - In .emacs:
     ```
     (add-to-list 'load-path "~/evil")
@@ -248,6 +248,7 @@ Lists of packages, softwares, and other tools that every computer scientist, sof
     (setq evil-default-state 'emacs) ;; changes default state to emacs
     ```
   - When using evil-mode, `C-z` is used by default to switch between Vi and Emacs modes
+  - As an alternative to EVIL, Emacs has `viper-mode` installed by default
 - NeoTree
   - In .emacs:
     ```
