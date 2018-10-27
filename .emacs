@@ -1,6 +1,12 @@
 ;; Disable startup screen
 (setq inhibit-startup-screen t)
 
+;; Load theme
+(load-theme 'manoj-dark)
+
+;; Automatically open .emacs file with <f5>
+(global-set-key (kbd "<f5>") (lambda() (interactive)(find-file "~/.emacs")))
+
 ;; For older versions of Emacs (24 and below (I think)), use:
 (setq inhibit-splash-screen t)   ;; Alias for inhibit-startup-screen
 (setq inhibit-startup-message t) ;; Alias for inhibit-startup-screen
@@ -226,3 +232,162 @@ Returns whatever the action returns."
          :recursive "t"
          :publishing-function org-html-publish-to-html
          :publishing-directory "/var/www/html/exported_example_org_project")))
+
+;; Skeletons with abbreviation
+(define-skeleton hello-world-skeleton
+  "Write a greeting"
+  "Type name of user: "
+  "hello, " str "!")
+
+(define-abbrev global-abbrev-table "hws" "" 'hello-world-skeleton)
+
+;; Ask for repeated input until an empty string is entered
+(define-skeleton hello-class
+  "Example for repeated input."
+  "this prompt is ignored"
+  ("Enter name of student: " "hello, " str \n))
+
+(define-skeleton add-tags
+  "Enter tags in any case and the output will be upcased."
+  nil
+  "Tags: "
+  ((upcase (skeleton-read "Tag: ")) ":"  str) ":" \n)
+
+(define-skeleton skeleton-skel
+  "Interactive skeleton for writing skeletons."
+  > "(define-skeleton " (skeleton-read "Skeleton name: ") \n
+  > "\"" (skeleton-read "Docstring: ") "\""
+  > ("Content line: " \n str) _ ")")
+
+(define-skeleton read-two-vars
+  "Prompt the user for two variables, and use them in a skeleton."
+  ""
+  > "variable A is " (setq v1 (skeleton-read "Variable A? ")) \n
+  > "variable B is " (setq v2 (skeleton-read "Variable B? ")) \n
+  > "A: " v1 "    B: " v2 \n)
+
+(define-skeleton vote
+  "Electoral motion results"
+  nil
+  > "|----------------+----------+--------------|" \n
+  > "|Vote:           |For: "
+  (setq v1 (skeleton-read "How many for? "))
+  "    |Against: "
+  (setq v2 (skeleton-read "How many against? "))
+  "    |" \n
+  > "|----------------+----------+--------------|" \n
+  "|" (if (< (string-to-number v1)(string-to-number v2))
+	  "Not Carried                               |"
+	"Carried                                    |")
+  \n
+  > "|------------------------------------------|" \n)
+
+(define-skeleton sexpr-example
+  "Insert a silly example."
+  ""
+  > "Emacs version is: " emacs-version \n
+  > "And time is: " (current-time-string))
+
+(define-skeleton insert-c-comment-header
+  "Inserts a c comment in a rectangle into current buffer."
+  ""
+  '(setq str (skeleton-read "Comment: "))
+  ;; `str' is set explicitly here, because otherwise the skeleton
+  ;; program would set it, only when it is going to insert it into the
+  ;; buffer. But we need to determine the length of the string
+  ;; beforehand, with `(length str)' below.
+  '(when (string= str "") (setq str " - "))
+  '(setq v1 (make-string (- fill-column 6) ?*))
+  '(setq v2 (- fill-column 10 (length str)))
+  "/* " v1 " */" \n
+  "/* **"
+  (make-string (floor v2 2) ?\ )
+  str
+  (make-string (ceiling v2 2) ?\ )
+  "** */" \n
+  "/* " v1 " */")
+
+(define-skeleton xhtml-trans-skeleton
+  "Inserts a skeletal XHTML file with the DOCTYPE declaration
+    for the XHTML 1.0 Transitional DTD"
+  "Title: "
+  "<?xml version=\"1.0\""
+  (if buffer-file-coding-system
+      (concat " encoding=\""
+	      (setq v1
+		    (symbol-name
+		     (coding-system-get buffer-file-coding-system
+                                        'mime-charset))) "\""))
+  "?>\n"
+  "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\"\n"
+  > "\"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n"
+  > "<html xmlns=\"http://www.w3.org/1999/xhtml\">\n"
+  > "<head>\n"
+  (when buffer-file-coding-system
+    (indent-according-to-mode)
+    (concat
+     "<meta http-equiv=\"Content-type\" content=\"text/html; charset="
+     v1 "\" />\n"))
+  > "<meta name=\"Author\" content=\"" (user-full-name) "\" />\n"
+  > "<title>" - str
+  "</title>\n"
+  "</head>" > \n
+  > "<body>\n"
+  > "<h1>" - str
+  "</h1>\n"
+  > - \n
+  "</body>" > \n
+  "</html>" > \n \n)
+
+(define-skeleton html-redirect-page
+  "Inserts an Web page that can redirect to STR."
+  "URL: "
+  "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\"\n"
+  "\"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n"
+  "<html xmlns=\"http://www.w3.org/1999/xhtml\">\n"
+  "<head>\n"
+  "<meta http-equiv=\"Refresh\" content=\"1;url=" str "\" />\n" 
+  "<title>Redirecting to " (setq v1 (skeleton-read "Title: ")) "</title>\n"
+  "</head>\n"
+  "<body>\n"
+  "<p>Redirecting to\n"
+  "<a href=\"" str "\">" v1 "</a>.\n"
+  "&hellip;</p>\n"
+  "</body>\n"
+  "</html>")
+
+(define-skeleton skel-defun
+  "Insert a defun template."
+  "Name: "
+  "(defun " str " (" @ - ")" \n
+  "(" @ _ ")" \n)
+
+;; Simply bind skeleton-next-position to some convenient key and you'll be able to cycle through the completion points within the template (The template directly above).
+(defvar *skeleton-markers* nil
+  "Markers for locations saved in skeleton-positions")
+
+(add-hook 'skeleton-end-hook 'skeleton-make-markers)
+
+(defun skeleton-make-markers ()
+  (while *skeleton-markers*
+    (set-marker (pop *skeleton-markers*) nil))
+  (setq *skeleton-markers*
+	(mapcar 'copy-marker (reverse skeleton-positions))))
+
+(defun skeleton-next-position (&optional reverse)
+  "Jump to next position in skeleton.
+         REVERSE - Jump to previous position in skeleton"
+  (interactive "P")
+  (let* ((positions (mapcar 'marker-position *skeleton-markers*))
+	 (positions (if reverse (reverse positions) positions))
+	 (comp (if reverse '> '<))
+	 pos)
+    (when positions
+      (if (catch 'break
+	    (while (setq pos (pop positions))
+	      (when (funcall comp (point) pos)
+		(throw 'break t))))
+	  (goto-char pos)
+	(goto-char (marker-position
+		    (car *skeleton-markers*)))))))
+;; More docs and examples can be found in skeleton.el and sh-script.el
