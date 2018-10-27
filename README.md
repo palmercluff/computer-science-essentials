@@ -153,31 +153,82 @@ Lists of packages, softwares, and other tools that every computer scientist, sof
     ```
   - To encrypt a region: `M-x epa-encrypt-region`
   - To decrypt a region: `M-x epa-decrypt-region`
+  For windows users:
+    - For EPA file/region encryption, simply download Gpg4win and it should work out of the box
+    - To enable passphrase everytime when decrypting
+    - Open Kleopatra -> "Settings" -> "Configure Kleopatra" -> "GnuPG System" -> "Private Keys" -> Set "Expire cached PINS after N seconds" to 0
 - Use abbreviations:
   - Make a `abbrevs.el` or whatever named file and put something like this in it:
     ```
     (define-abbrev-table 'global-abbrev-table '(
-                                            ("8alpha"   "α")
-                                            ("8beta"    "β")
-                                            ("8gamma"   "γ")
-                                            ("8Delta"   "Δ")
-                                            ("8delta"   "δ")
-                                            ("8theta"   "θ")
-                                            ("8lambda"  "λ")
-                                            ("8mu"      "µ")
-                                            ("8nu"      "ν")
-                                            ("8pi"      "π")
-                                            ("8Sigma"   "Σ")
-                                            ("8sigma"   "σ")
-                                            ("8tau"     "τ")
-                                            ("8phi"     "φ")
-                                            ("8psi"     "ψ")
-                                            ("8Omega"   "Ω")
-                                            ("8omega"   "ω")
-                                            ("8in"      "∈")
-                                            ("8nin"     "∉")
-                                            ("8inf"     "∞")
-                                            ))
+					    ;; Greek letters
+					    ("Alpha"     "Α") ;A
+              ("alpha"     "α") ;a
+					    ("Beta"      "Β") ;B
+              ("beta"      "β") ;b
+					    ("Gamma"     "Γ") ;G
+              ("gamma"     "γ") ;g
+              ("Delta"     "Δ") ;D
+              ("delta"     "δ") ;d
+					    ("Epsilon"   "Ε") ;E
+					    ("epsilon"   "ε") ;e
+					    ("Zeta"      "Ζ") ;Z
+					    ("zeta"      "ζ") ;z
+					    ("Eta"       "Η") ;H
+					    ("eta"       "η") ;h
+					    ("Theta"     "Θ") ;Th
+              ("theta"     "θ") ;th
+					    ("Iota"      "Ι") ;I
+					    ("iota"      "ι") ;i
+					    ("Kappa"     "Κ") ;K
+					    ("kappa"     "κ") ;k
+					    ("Lambda"    "Λ") ;L
+              ("lambda"    "λ") ;l
+					    ("Mu"        "Μ") ;M
+              ("mu"        "μ") ;m
+					    ("Nu"        "Ν") ;N
+              ("nu"        "ν") ;n
+					    ("Xi"        "Ξ") ;X
+					    ("xi"        "ξ") ;x
+					    ("Omicron"   "Ο") ;O
+					    ("omicron"   "ο") ;o
+					    ("Pi"        "Π") ;P
+              ("pi"        "π") ;p
+					    ("Rho"       "Ρ") ;R
+					    ("rho"       "ρ") ;r
+              ("Sigma"     "Σ") ;S
+              ("sigma"     "σ") ;s
+					    ("Tau"       "Τ") ;T
+              ("tau"       "τ") ;t
+					    ("Upsilon"   "Υ") ;U
+					    ("upsilon"   "υ") ;u
+					    ("Phi"       "Φ") ;Ph
+              ("phi"       "φ") ;ph
+					    ("Chi"       "Χ") ;Ch
+					    ("chi"       "χ") ;ch
+					    ("Psi"       "Ψ") ;Ps
+              ("psi"       "ψ") ;ps
+              ("Omega"     "Ω") ;O
+              ("omega"     "ω") ;o
+
+					    ;; Temperatures
+					    ("degrees" "" degrees)
+					    ("C"         "Celsius")
+					    ("F"         "Fahrenheit")
+
+					    ;; Other
+					    ("inf"       "∞") ;Infinity
+					    ("nospace"   "no space after expansion" dont-add-space)
+					    ))
+
+    (defun degrees()
+      (backward-char)
+    (insert "°"))
+
+    (defun dont-add-space()
+      t)
+    (put 'dont-add-space 'no-self-insert t)
+
     ```
   - Then in .emacs put:
     ```
@@ -187,6 +238,7 @@ Lists of packages, softwares, and other tools that every computer scientist, sof
     (setq-default abbrev-mode t) ;; turn it on for all modes
     ```
   - Then whenever you type the key, then space or . it will convert
+  - `C-q` prevents word from expanding if you do it before space or punctuation
 - Evil Mode (https://github.com/emacs-evil/evil)
   - In .emacs:
     ```
@@ -196,6 +248,21 @@ Lists of packages, softwares, and other tools that every computer scientist, sof
     (setq evil-default-state 'emacs) ;; changes default state to emacs
     ```
   - When using evil-mode, `C-z` is used by default to switch between Vi and Emacs modes
+Access Org manual from within Emacs
+  1. Start the info system `C-h i`
+  2. Open the menu `m`
+  3. Enter `org <RET>`
+
+  Or with: `M-x org-info`
+
+  Navigating within documentation
+    - `n` - Go forward, but only within the level you are in (will not go to next section)
+    - `]` - Go forward and go into next section if you have finished the level
+
+    - `p` - Go backward, but only within the level you are in (will not go to previous section)
+    - `[` - Go backward and go into previous section if you have finished the level
+
+    - `^` - Go up a level
 - `M-$` Check and correct spelling of the word at point (`ispell-word`). If the region is active, do it for all words in the region instead
 - `M-x ispell` Check and correct spelling of all words in the buffer. If the region is active, do it for all words in the region instead
 - While changing a word, pressing `<space>` will skip the word, but will still consider it incorrect for now
