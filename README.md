@@ -161,65 +161,65 @@ Lists of packages, softwares, and other tools that every computer scientist, sof
   - Make a `abbrevs.el` or whatever named file and put something like this in it:
     ```
     (define-abbrev-table 'global-abbrev-table '(
-					    ;; Greek letters
-					    ("Alpha"     "Α") ;A
-              ("alpha"     "α") ;a
-					    ("Beta"      "Β") ;B
-              ("beta"      "β") ;b
-					    ("Gamma"     "Γ") ;G
-              ("gamma"     "γ") ;g
-              ("Delta"     "Δ") ;D
-              ("delta"     "δ") ;d
-					    ("Epsilon"   "Ε") ;E
-					    ("epsilon"   "ε") ;e
-					    ("Zeta"      "Ζ") ;Z
-					    ("zeta"      "ζ") ;z
-					    ("Eta"       "Η") ;H
-					    ("eta"       "η") ;h
-					    ("Theta"     "Θ") ;Th
-              ("theta"     "θ") ;th
-					    ("Iota"      "Ι") ;I
-					    ("iota"      "ι") ;i
-					    ("Kappa"     "Κ") ;K
-					    ("kappa"     "κ") ;k
-					    ("Lambda"    "Λ") ;L
-              ("lambda"    "λ") ;l
-					    ("Mu"        "Μ") ;M
-              ("mu"        "μ") ;m
-					    ("Nu"        "Ν") ;N
-              ("nu"        "ν") ;n
-					    ("Xi"        "Ξ") ;X
-					    ("xi"        "ξ") ;x
-					    ("Omicron"   "Ο") ;O
-					    ("omicron"   "ο") ;o
-					    ("Pi"        "Π") ;P
-              ("pi"        "π") ;p
-					    ("Rho"       "Ρ") ;R
-					    ("rho"       "ρ") ;r
-              ("Sigma"     "Σ") ;S
-              ("sigma"     "σ") ;s
-					    ("Tau"       "Τ") ;T
-              ("tau"       "τ") ;t
-					    ("Upsilon"   "Υ") ;U
-					    ("upsilon"   "υ") ;u
-					    ("Phi"       "Φ") ;Ph
-              ("phi"       "φ") ;ph
-					    ("Chi"       "Χ") ;Ch
-					    ("chi"       "χ") ;ch
-					    ("Psi"       "Ψ") ;Ps
-              ("psi"       "ψ") ;ps
-              ("Omega"     "Ω") ;O
-              ("omega"     "ω") ;o
+    ;; Greek letters
+    ("Alpha"     "Α") ;A
+    ("alpha"     "α") ;a
+    ("Beta"      "Β") ;B
+    ("beta"      "β") ;b
+    ("Gamma"     "Γ") ;G
+    ("gamma"     "γ") ;g
+    ("Delta"     "Δ") ;D
+    ("delta"     "δ") ;d
+    ("Epsilon"   "Ε") ;E
+    ("epsilon"   "ε") ;e
+    ("Zeta"      "Ζ") ;Z
+    ("zeta"      "ζ") ;z
+    ("Eta"       "Η") ;H
+    ("eta"       "η") ;h
+    ("Theta"     "Θ") ;Th
+    ("theta"     "θ") ;th
+    ("Iota"      "Ι") ;I
+    ("iota"      "ι") ;i
+    ("Kappa"     "Κ") ;K
+    ("kappa"     "κ") ;k
+    ("Lambda"    "Λ") ;L
+    ("lambda"    "λ") ;l
+    ("Mu"        "Μ") ;M
+    ("mu"        "μ") ;m
+    ("Nu"        "Ν") ;N
+    ("nu"        "ν") ;n
+    ("Xi"        "Ξ") ;X
+    ("xi"        "ξ") ;x
+    ("Omicron"   "Ο") ;O
+    ("omicron"   "ο") ;o
+    ("Pi"        "Π") ;P
+    ("pi"        "π") ;p
+    ("Rho"       "Ρ") ;R
+    ("rho"       "ρ") ;r
+    ("Sigma"     "Σ") ;S
+    ("sigma"     "σ") ;s
+    ("Tau"       "Τ") ;T
+    ("tau"       "τ") ;t
+    ("Upsilon"   "Υ") ;U
+    ("upsilon"   "υ") ;u
+    ("Phi"       "Φ") ;Ph
+    ("phi"       "φ") ;ph
+    ("Chi"       "Χ") ;Ch
+    ("chi"       "χ") ;ch
+    ("Psi"       "Ψ") ;Ps
+    ("psi"       "ψ") ;ps
+    ("Omega"     "Ω") ;O
+    ("omega"     "ω") ;o
 
-					    ;; Temperatures
-					    ("degrees" "" degrees)
-					    ("C"         "Celsius")
-					    ("F"         "Fahrenheit")
+    ;; Temperatures
+    ("degrees" "" degrees)
+    ("C"         "Celsius")
+    ("F"         "Fahrenheit")
 
-					    ;; Other
-					    ("inf"       "∞") ;Infinity
-					    ("nospace"   "no space after expansion" dont-add-space)
-					    ))
+    ;; Other
+    ("inf"       "∞") ;Infinity
+    ("nospace"   "no space after expansion" dont-add-space)
+    ))
 
     (defun degrees()
       (backward-char)
@@ -248,10 +248,31 @@ Lists of packages, softwares, and other tools that every computer scientist, sof
     (setq evil-default-state 'emacs) ;; changes default state to emacs
     ```
   - When using evil-mode, `C-z` is used by default to switch between Vi and Emacs modes
-Access Org manual from within Emacs
-  1. Start the info system `C-h i`
-  2. Open the menu `m`
-  3. Enter `org <RET>`
+- NeoTree
+  - In .emacs:
+    ```
+    (add-to-list 'load-path "~/.emacs.d/lisp/emacs-neotree-master/emacs-neotree-master")
+    (require 'neotree)
+    (global-set-key [f8] 'neotree-toggle)
+    ```
+- Sublimity
+  - In .emacs:
+    ```
+    (add-to-list 'load-path "~/.emacs.d/lisp/sublimity-master/sublimity-master")
+    (require 'sublimity)
+    (require 'sublimity-map)
+    (sublimity-mode 1)
+    ```
+- Minimap
+  - In .emacs:
+    ```
+    (add-to-list 'load-path "~/.emacs.d/lisp/minimap-master/minimap-master")
+    (require 'minimap)
+    ```
+- Access Org manual from within Emacs
+    1. Start the info system `C-h i`
+    2. Open the menu `m`
+    3. Enter `org <RET>`
 
   Or with: `M-x org-info`
 
