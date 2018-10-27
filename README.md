@@ -153,7 +153,7 @@ Lists of packages, softwares, and other tools that every computer scientist, sof
     ```
   - To encrypt a region: `M-x epa-encrypt-region`
   - To decrypt a region: `M-x epa-decrypt-region`
-  For windows users:
+  - For windows users:
     - For EPA file/region encryption, simply download Gpg4win and it should work out of the box
     - To enable passphrase everytime when decrypting
     - Open Kleopatra -> "Settings" -> "Configure Kleopatra" -> "GnuPG System" -> "Private Keys" -> Set "Expire cached PINS after N seconds" to 0
