@@ -285,9 +285,18 @@ Lists of packages, softwares, and other tools that every computer scientist, sof
     - `[` - Go backward and go into previous section if you have finished the level
 
     - `^` - Go up a level
-- `M-$` Check and correct spelling of the word at point (`ispell-word`). If the region is active, do it for all words in the region instead
-- `M-x ispell` Check and correct spelling of all words in the buffer. If the region is active, do it for all words in the region instead
-- While changing a word, pressing `<space>` will skip the word, but will still consider it incorrect for now
-- While changing a word, pressing `i` will insert that selected word into your own personal dictionary file. It appears that the dictionary file is called `.aspell.en.pws` on Debian-based systems
+- Ispell
+  - `M-$` Check and correct spelling of the word at point (`ispell-word`). If the region is active, do it for all words in the region instead
+  - `M-x ispell` Check and correct spelling of all words in the buffer. If the region is active, do it for all words in the region instead
+  - While changing a word, pressing `<space>` will skip the word, but will still consider it incorrect for now
+  - While changing a word, pressing `i` will insert that selected word into your own personal dictionary file. It appears that the dictionary file is called `.aspell.en.pws` on Debian-based systems
+  - For Windows users
+    - In .emacs:
+      ```
+      ;; Getting spell checker to work under newer versions of Emacs on Windows
+      ;; (aspell is pretty old and v0.50 wont work on Emacs v26+) (add this to github later)
+      (add-to-list 'exec-path "~/.emacs.d/binaries/hunspell-1.3.2-3-w32-bin/bin/") ;Path to where binary is located (no install required)
+      (setq ispell-program-name "hunspell") ;Personal dictionary file will probably be saved as "hunspell_default"
+      ```
 - Add new user to sudo group: `usermod -a -G sudo user_account`.
 - `cat /dev/null > ~/.bash_history && history -c && exit` This clears the history saved in the history file as well as the history in the current session (so that it's not saved to file when bash exits). It then exits the shell. The next shell session will have no history.
