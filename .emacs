@@ -1,6 +1,12 @@
 ;; Disable startup screen
 (setq inhibit-startup-screen t)
 
+;; Minimal UI
+(scroll-bar-mode -1)
+(tool-bar-mode   -1)
+(tooltip-mode    -1)
+(menu-bar-mode   -1)
+
 ;; Load theme
 (load-theme 'manoj-dark)
 
@@ -187,6 +193,12 @@ Returns whatever the action returns."
 (setq delete-old-versions t)  ;; Don't ask to delete excess backup versions
 (setq backup-by-copying t)    ;; Copy all files, don't rename them
 (setq vc-make-backup-files t) ;; Backup versioned files
+
+;; Backup on every save, not just a buffer session
+(defun force-backup-of-buffer ()
+  (setq buffer-backed-up nil))
+
+(add-hook 'before-save-hook  'force-backup-of-buffer)
 
 ;; New HTML5 Template
 (defun newHTML5Template ()
@@ -391,3 +403,56 @@ Returns whatever the action returns."
 	(goto-char (marker-position
 		    (car *skeleton-markers*)))))))
 ;; More docs and examples can be found in skeleton.el and sh-script.el
+
+;; To delete IDO completion history, delete ido.last file
+;; To change where ido.last is saved, change ido-save-directory-list-file (setq ido-save-directory-list-file "/some/file/name")
+(setq ido-enable-flex-matching t)
+(setq ido-everywhere t)
+(ido-mode 1)
+
+;; Spacemacs themes
+(add-to-list 'load-path "~/.emacs.d/lisp/spacemacs-theme-master/spacemacs-theme-master")
+(require 'spacemacs-common)
+(load-theme 'spacemacs-dark t)
+
+;; Doom themes
+(add-to-list 'load-path "~/.emacs.d/lisp/emacs-doom-themes-master/emacs-doom-themes-master")
+(require 'doom-themes)
+(load-theme 'doom-one t)
+
+;; which-key
+(add-to-list 'load-path "~/.emacs.d/lisp/emacs-which-key-master/emacs-which-key-master")
+(require 'which-key)
+(which-key-mode)
+;; While which-key is toggled, you can press ? instead of C-h for pagination and such
+
+;; EVIL leader keys
+
+;; Evil-leader
+(add-to-list 'load-path "~/.emacs.d/lisp/evil-leader-master/evil-leader-master")
+(require 'evil-leader)
+(global-evil-leader-mode)
+(evil-leader/set-key
+  "e" 'find-file
+  "b" 'switch-to-buffer
+  "k" 'kill-buffer)
+
+;; General.el (Use SPC in normal and visual states, and use M-SPC in emacs and insert state)
+(add-to-list 'load-path "~/.emacs.d/lisp/general.el-master/general.el-master")
+(require 'general)
+(general-define-key
+ :keymaps '(normal visual insert emacs)
+ :prefix "SPC"
+ :non-normal-prefix "M-SPC"
+ "e" 'find-file
+ "b" 'switch-to-buffer
+ "k" 'kill-buffer)
+
+;; Save cursor position
+
+;; Emacs 25.1 and above
+(save-place-mode 1)
+
+;; Emacs 24.5 and below
+(require 'saveplace)
+(setq-default save-place t)
