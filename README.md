@@ -135,6 +135,7 @@ Lists of packages, softwares, and other tools that every computer scientist, sof
         +-------+
     #+END_SRC
     ```
+  - To change the default path Emacs uses for ditaa, you can use `(setq org-ditaa-jar-path "/path/to/ditaa_file.jar")`
 - Turn on `flyspell` for all programming languages: `(add-hook 'prog-mode-hook 'flyspell-prog-mode)`
 - Install php-mode for emacs:
   - `sudo apt-get install php-elisp`
