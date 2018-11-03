@@ -186,6 +186,14 @@ Returns whatever the action returns."
 ;; Save all generated backups in one place
 (setq backup-directory-alist '(("." . "~/emacsFilesBackups")))
 
+;; Backup remotely edited files on SERVER when using TRAMP
+(setq tramp-backup-directory-alist '(("." . "~/trampEmacsFilesBackups")))
+
+;; DON'T backup any files on the SERVER if accessed through TRAMP
+;; (but only if backup-directory-alist is enabled as well (as seen above), otherwise default emacs backups will occur on the server)
+;; (If both backup-directory-alist is set and tramp-backup-directory-alist is null, then remote backups will be saved on the local machine)
+(setq tramp-backup-directory-alist nil)
+
 ;; Disk space is cheap, backup the same file(s) very often!
 (setq version-control t)      ;; Use version numbers for backups
 (setq kept-new-versions 10)   ;; Number of newest versions to keep
