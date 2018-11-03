@@ -50,6 +50,12 @@ Lists of packages, softwares, and other tools that every computer scientist, sof
 - `netstat -tulpn` (Linux) Returns a list of active internet connections and their associated ports. Use `netstat -tulpn | grep LISTEN` to return of the list of listening ports.
 - `apt-get install default-jre` (Linux) Installs the Java runtime environment (java).
 - `apt-get install default-jdk` (Linux) Installs the Java development kit (javac).
+- Portable Emacs
+  - The standard MS-Windows binaries is already portable, in that you can just unzip it anywhere and run it directly. To keep your `.emacs.d` in a directory called `emacshome` on your USB stick next to the unzipped Emacs, create a `runemacs.bat` file in Emacs’ `bin/` directory with contents:
+  ```
+  set HOME=%~dp0..\..\emacshome
+  "%~dp0runemacs.exe" %*
+  ```
 - Emacs `M-x` command can be executed by: `Alt-x` or `Esc-x` or `Esc x`.
 - Emacs `C-g` cancel command.
 - Emacs `Esc Esc Esc` go back to just one window (by deleting all but the selected window).
@@ -229,7 +235,6 @@ Lists of packages, softwares, and other tools that every computer scientist, sof
     (defun dont-add-space()
       t)
     (put 'dont-add-space 'no-self-insert t)
-
     ```
   - Then in .emacs put:
     ```
