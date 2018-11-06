@@ -300,7 +300,7 @@ Lists of packages, softwares, and other tools that every computer scientist, sof
     - In .emacs:
       ```
       ;; Getting spell checker to work under newer versions of Emacs on Windows
-      ;; (aspell is pretty old and v0.50 wont work on Emacs v26+) (add this to github later)
+      ;; (aspell is pretty old and v0.50 wont work on Emacs v26+)
       (add-to-list 'exec-path "~/.emacs.d/binaries/hunspell-1.3.2-3-w32-bin/bin/") ;Path to where binary is located (no install required)
       (setq ispell-program-name "hunspell") ;Personal dictionary file will probably be saved as "hunspell_default"
       ```
