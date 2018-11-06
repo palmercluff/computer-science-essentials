@@ -1,6 +1,10 @@
 ;; Disable startup screen
 (setq inhibit-startup-screen t)
 
+;; For older versions of Emacs (24 and below (I think)), use:
+(setq inhibit-splash-screen t)   ;; Alias for inhibit-startup-screen
+(setq inhibit-startup-message t) ;; Alias for inhibit-startup-screen
+
 ;; Minimal UI
 (scroll-bar-mode -1)
 (tool-bar-mode   -1)
@@ -12,10 +16,6 @@
 
 ;; Automatically open .emacs file with <f5>
 (global-set-key (kbd "<f5>") (lambda() (interactive)(find-file "~/.emacs")))
-
-;; For older versions of Emacs (24 and below (I think)), use:
-(setq inhibit-splash-screen t)   ;; Alias for inhibit-startup-screen
-(setq inhibit-startup-message t) ;; Alias for inhibit-startup-screen
 
 ;; Add line numbers to all open windows
 (global-linum-mode)
@@ -71,7 +71,7 @@ an opening tag that is not followed by a matching closing tag."
 ;; Set custom global key binding that calls a function
 (global-set-key (kbd "C-c C-c") 'my-function)
 
-;; Enable the display of time in the modeline
+;; Enable the display of time in the mode line
 (display-time-mode 1)
 
 ;; Turn off confirmation requests for all code blocks
@@ -464,3 +464,22 @@ Returns whatever the action returns."
 ;; Emacs 24.5 and below
 (require 'saveplace)
 (setq-default save-place t)
+
+;; Keyboard-driven solution for mc/add-cursor-on-click
+(require 'multiple-cursors)
+
+(defun mc/toggle-cursor-at-point ()
+  "Add or remove a cursor at point."
+  (interactive)
+  (if multiple-cursors-mode
+      (message "Cannot toggle cursor at point while `multiple-cursors-mode' is active.")
+    (let ((existing (mc/fake-cursor-at-point)))
+      (if existing
+          (mc/remove-fake-cursor existing)
+        (mc/create-fake-cursor-at-point)))))
+
+(add-to-list 'mc/cmds-to-run-once 'mc/toggle-cursor-at-point)
+(add-to-list 'mc/cmds-to-run-once 'multiple-cursors-mode)
+
+(global-set-key (kbd "C-S-SPC") 'mc/toggle-cursor-at-point)
+(global-set-key (kbd "<C-S-return>") 'multiple-cursors-mode)
