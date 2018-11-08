@@ -208,6 +208,11 @@ Returns whatever the action returns."
 
 (add-hook 'before-save-hook  'force-backup-of-buffer)
 
+;; Save various histories (i.e. minibuffer, kill ring, searches, etc)
+(setq kill-ring-max 100)
+(setq savehist-additional-variables '(kill-ring search-ring regexp-search-ring))
+(savehist-mode 1)
+
 ;; New HTML5 Template
 (defun newHTML5Template ()
   "Insert a template for an empty HTML page"
