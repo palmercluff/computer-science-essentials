@@ -282,6 +282,8 @@ Lists of packages, softwares, and other tools that every computer scientist, sof
     3. Enter `org <RET>`
 
   Or with: `M-x org-info`
+  
+  Or with: `(info "(org) Top")`
 
   Navigating within documentation
     - `n` - Go forward, but only within the level you are in (will not go to next section)
