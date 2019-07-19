@@ -11,6 +11,12 @@
 (tooltip-mode    -1)
 (menu-bar-mode   -1)
 
+;; Set default starting directory
+(setq default-directory "C:/")
+
+;; Replace highlighted text when you type
+(delete-selection-mode 1)
+
 ;; Load theme
 (load-theme 'manoj-dark)
 
@@ -419,6 +425,9 @@ Returns whatever the action returns."
 
 ;; To delete IDO completion history, delete ido.last file
 ;; To change where ido.last is saved, change ido-save-directory-list-file (setq ido-save-directory-list-file "/some/file/name")
+;; C-l - Re-reads contents of directory in minibuffer
+;; C-f - Fall back to find-file
+;; C-j - Create a new file with the text you typed, not the closest auto-completed match if it exists
 (setq ido-enable-flex-matching t)
 (setq ido-everywhere t)
 (ido-mode 1)
@@ -488,3 +497,15 @@ Returns whatever the action returns."
 
 (global-set-key (kbd "C-S-SPC") 'mc/toggle-cursor-at-point)
 (global-set-key (kbd "<C-S-return>") 'multiple-cursors-mode)
+
+;; For external programs you need to run as async (as well as add custom commands to Eshell)
+
+;; To disable popup Async Shell Command window for when using (shell-command "putty.exe&") or (async-shell-command "putty.exe")
+;;(add-to-list 'display-buffer-alist
+;;	     (cons "\\*Async Shell Command\\*.*" (cons #'display-buffer-no-window nil)))
+(defsubst eshell/putty ()
+  (interactive)
+  ;;(shell-command "putty.exe&")
+  (call-process-shell-command "putty" nil 0)
+  ;;(async-shell-command "putty.exe")
+  )
