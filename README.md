@@ -70,6 +70,9 @@ Lists of packages, softwares, and other tools that every computer scientist, sof
 - Emacs set Japanese input: `Ctrl-\` then enter the string `japanese` (or `japanese-katakana`). Toggle between Japanese and English with the same command.
 - For Windows, to find where root directory is, just do: `C-x C-f ~/`.
 - Open a new shell buffer: `C-u M-x shell`.
+- Describe variable: `describe-variable` or `C-h v`.
+- To see current buffer encoding: `C-h v` `buffer-file-coding-system`.
+- To set next buffer encoding on next save: `C-x RET f` or `C-x C-m f` or `set-buffer-file-coding-system`.
 - Undo in Emacs:
   - `C-/`
   - `C-x u`
