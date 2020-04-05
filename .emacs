@@ -214,6 +214,9 @@ Returns whatever the action returns."
 
 (add-hook 'before-save-hook  'force-backup-of-buffer)
 
+;; Or don't create any backups whatsoever
+(setq make-backup-files nil)
+
 ;; Save various histories (i.e. minibuffer, kill ring, searches, etc)
 (setq kill-ring-max 100)
 (setq savehist-additional-variables '(kill-ring search-ring regexp-search-ring))
