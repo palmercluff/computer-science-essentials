@@ -512,3 +512,9 @@ Returns whatever the action returns."
   (call-process-shell-command "putty" nil 0)
   ;;(async-shell-command "putty.exe")
   )
+
+;; Don't show the "now" line in agenda view
+(setq org-agenda-show-current-time-in-grid nil)
+
+;; Highlight the current line
+(global-hl-line-mode 1)
