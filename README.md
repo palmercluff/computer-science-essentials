@@ -165,6 +165,7 @@ Lists of packages, softwares, and other tools that every computer scientist, sof
     ```
   - To encrypt a region: `M-x epa-encrypt-region`
   - To decrypt a region: `M-x epa-decrypt-region`
+  - To use Emacs prompt for passphrase: `(setq epg-pinentry-mode 'loopback)`
   - For windows users:
     - For EPA file/region encryption, simply download Gpg4win and it should work out of the box
     - To enable passphrase everytime when decrypting
