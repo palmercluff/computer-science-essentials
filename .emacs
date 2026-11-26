@@ -518,3 +518,16 @@ Returns whatever the action returns."
 
 ;; Highlight the current line
 (global-hl-line-mode 1)
+
+;; Prevent those pesky ^M escape characters when running Org source code blocks on Windows version of Emacs
+(setq-default buffer-file-coding-system 'utf-8-unix)
+
+;; Upgraded to Emacs 31.1 via emacs-31.1_1-installer.exe, and running remote code blocks tries to use local cmdproxy.exe,
+;; which breaks remote code blocks from working remotely... This is the workaround for now
+(with-eval-after-load 'ob-eval
+  (define-advice org-babel-eval (:around (orig-fn cmd query) remote-posix-shell)
+    (if (file-remote-p default-directory)
+        (let ((shell-file-name "/bin/sh")
+              (shell-command-switch "-c"))
+          (funcall orig-fn cmd query))
+      (funcall orig-fn cmd query))))
