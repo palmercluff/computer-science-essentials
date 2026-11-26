@@ -534,3 +534,6 @@ Returns whatever the action returns."
 
 ;; When editing files in hex-mode, don't group up bits in 2-byte groups, which is the default. Space between each byte
 (setq hexl-bits 8)
+
+;; Enter GPG passwords within Emacs window, not via external program
+(setq epg-pinentry-mode 'loopback)
