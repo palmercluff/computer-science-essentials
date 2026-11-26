@@ -531,3 +531,6 @@ Returns whatever the action returns."
               (shell-command-switch "-c"))
           (funcall orig-fn cmd query))
       (funcall orig-fn cmd query))))
+
+;; When editing files in hex-mode, don't group up bits in 2-byte groups, which is the default. Space between each byte
+(setq hexl-bits 8)
